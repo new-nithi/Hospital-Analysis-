@@ -4,9 +4,9 @@ SQL queries for analyzing hospital database
 ## Tables in this database
 - `appointments` — appointment_id, patient_id, doctor_id, appointment_date, appointment_time, reason_for_visit, status
 - `patients` — patient_id, first_name, last_name, gender, date_of_birth, insurance_provider
-- `doctors` — doctor_id, first_name, last_name, (specialty if available)
+- `doctors` — doctor_id, first_name, last_name
 - `treatments` — treatment_id, appointment_id, treatment_type, description, cost, treatment_date
-- `billing` — (fields as in the DB)
+- `billing` 
 
 </div>
 
@@ -21,3 +21,11 @@ SQL queries for analyzing hospital database
 - 8.`KPI : income per doctor and time of appointments`
   
 </div>
+
+flowchart LR
+  A[Inspect schema<br/>ดูตาราง/คอลัมน์ใน SS.db] --> B[Standardize Views<br/>sql/views/01_base_views.sql]
+  B --> C[Performance Basics<br/>sql/indexes/01_recommended.sql]
+  C --> D[Analytics Reports (CTE/Window)<br/>sql/reports/*.sql]
+  D --> E[Export CSV via CLI<br/>sql/scripts/run_all.sql → docs/outputs/*.csv]
+  E --> F[Summarize Findings in README/ONE-PAGER]
+
