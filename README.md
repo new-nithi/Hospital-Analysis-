@@ -11,12 +11,13 @@ SQL queries for analyzing hospital database
 </div>
 
 ## ประเด็นที่วิเคราะห์ด้วย SQL
--`1.show a doctor who have an exps more than 5 years_experienc `
--2.`Show patient name and doctor name make an appointment_date `
--3.`Summarize how many tines,each of appointment in each type `
--4.`Total cost any treatment type`
--5.`Total revenue from each doctor`
--6.`patient who have most appointment`
--7.`For patient who did appointment but not showing up`
--8.`KPI : income per doctor and time of appointments`
+- `show a doctor who have an exps more than 5 years_experienc `
+- 2.`Show patient name and doctor name make an appointment_date `
+- 3.`Summarize how many tines,each of appointment in each type `
+- 4.`Total cost any treatment type`
+- 5.`Total revenue from each doctor`
+- 6.`patient who have most appointment`
+- 7.`For patient who did appointment but not showing up`
+- 8.`KPI : income per doctor and time of appointments`
+  
 </div>
