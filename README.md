@@ -9,6 +9,7 @@ SQL queries for analyzing hospital database
 - `billing` — (fields as in the DB)
 
 </div>
+
 ## ประเด็นที่วิเคราะห์ด้วย SQL
 1.show a doctor who have an exps more than 5 years_experienc (Where , order by)
 2.Show patient name and doctor name make an appointment_date (join)
@@ -18,3 +19,4 @@ SQL queries for analyzing hospital database
 6.patient who have most appointment
 7.For patient who did appointment but not showing up
 8.KPI : income per doctor and time of appointments
+</div>
