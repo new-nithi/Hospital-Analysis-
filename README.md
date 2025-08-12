@@ -7,60 +7,7 @@ SQL-only project to analyze a hospital database (SQLite). This repo focuses on *
 - Provide **reproducible** SQL: build schema and run analysis in a few commands.
 
 ## Data / Schema
-Below is the discovered schema from `SS.db` (no real patient data included). I extracted table definitions into `sql/00_schema.sql` and designed queries in `sql/10_analysis_kpis.sql`.
 
-```mermaid
-erDiagram
-  appointments {
-    VARCHAR appointment_id PK
-    VARCHAR patient_id PK
-    VARCHAR doctor_id PK
-    VARCHAR appointment_date
-    VARCHAR appointment_time
-    VARCHAR reason_for_visit
-    VARCHAR status
-  }
-  billing {
-    VARCHAR bill_id PK
-    VARCHAR patient_id PK
-    VARCHAR treatment_id PK
-    VARCHAR bill_date
-    FLOAT amount
-    VARCHAR payment_method
-    VARCHAR payment_status
-  }
-  doctors {
-    VARCHAR doctor_id PK
-    VARCHAR first_name
-    VARCHAR last_name
-    VARCHAR specialization
-    INT phone_number
-    INT years_experience
-    VARCHAR hospital_branch
-    VARCHAR email
-  }
-  patients {
-    VARCHAR patient_id PK
-    VARCHAR first_name
-    VARCHAR last_name
-    VARCHAR gender
-    VARCHAR date_of_birth
-    INT contact_number
-    VARCHAR address
-    VARCHAR registration_date
-    VARCHAR insurance_provider
-    VARCHAR insurance_number
-    VARCHAR email
-  }
-  treatments {
-    VARCHAR treatment_id PK
-    VARCHAR appointment_id PK
-    VARCHAR treatment_type
-    VARCHAR description
-    FLOAT cost
-    VARCHAR treatment_date
-  }
-```
 
 ### `appointments`
 | column | type | pk | not null | default |
