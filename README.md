@@ -22,10 +22,4 @@ SQL queries for analyzing hospital database
   
 </div>
 
-flowchart LR
-  A[Inspect schema<br/>ดูตาราง/คอลัมน์ใน SS.db] --> B[Standardize Views<br/>sql/views/01_base_views.sql]
-  B --> C[Performance Basics<br/>sql/indexes/01_recommended.sql]
-  C --> D[Analytics Reports (CTE/Window)<br/>sql/reports/*.sql]
-  D --> E[Export CSV via CLI<br/>sql/scripts/run_all.sql → docs/outputs/*.csv]
-  E --> F[Summarize Findings in README/ONE-PAGER]
 
