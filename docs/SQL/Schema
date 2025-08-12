@@ -1,1 +1,67 @@
 
+-- SCHEMA DUMP (tables)
+
+CREATE TABLE "appointments" (
+	"appointment_id"	TEXT,
+	"patient_id"	TEXT,
+	"doctor_id"	TEXT,
+	"appointment_date"	TEXT,
+	"appointment_time"	TEXT,
+	"reason_for_visit"	TEXT,
+	"status"	TEXT,
+	PRIMARY KEY("appointment_id","patient_id","doctor_id")
+);
+
+CREATE TABLE "billing" (
+	"bill_id"	TEXT,
+	"patient_id"	TEXT,
+	"treatment_id"	TEXT,
+	"bill_date"	TEXT,
+	"amount"	REAL,
+	"payment_method"	TEXT,
+	"payment_status"	TEXT,
+	PRIMARY KEY("bill_id","patient_id","treatment_id")
+);
+
+CREATE TABLE "doctors" (
+	"doctor_id"	TEXT,
+	"first_name"	TEXT,
+	"last_name"	TEXT,
+	"specialization"	TEXT,
+	"phone_number"	INTEGER,
+	"years_experience"	INTEGER,
+	"hospital_branch"	TEXT,
+	"email"	TEXT,
+	PRIMARY KEY("doctor_id")
+);
+
+CREATE TABLE "patients" (
+	"patient_id"	TEXT,
+	"first_name"	TEXT,
+	"last_name"	TEXT,
+	"gender"	TEXT,
+	"date_of_birth"	TEXT,
+	"contact_number"	INTEGER,
+	"address"	TEXT,
+	"registration_date"	TEXT,
+	"insurance_provider"	TEXT,
+	"insurance_number"	TEXT,
+	"email"	TEXT,
+	PRIMARY KEY("patient_id")
+);
+
+CREATE TABLE "treatments" (
+	"treatment_id"	TEXT,
+	"appointment_id"	TEXT,
+	"treatment_type"	TEXT,
+	"description"	TEXT,
+	"cost"	REAL,
+	"treatment_date"	TEXT,
+	PRIMARY KEY("treatment_id","appointment_id")
+);
+
+
+-- INDEXES
+
+
+-- VIEWS
