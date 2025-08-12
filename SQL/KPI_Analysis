@@ -1,1 +1,80 @@
+--Previews DATA
+SELECT*
+From Patients
+Limit 5; --ข้อมูล 5  คน
+
+
+--show a doctor who have an exps more than 5 years_experienc
+SELECT first_name,last_name,specialization,years_experience
+FROM Doctors
+Where years_experience > 25
+ORDER by years_experience DESC;
+
+
+
+-- ก่อน Join ได้ทำการ PK เรียบร้อยแล้ว
+
+--Show patient name and doctor name make an appointment_date
+SELECT patients.first_name AS patient_name,
+       doctors.first_name AS doctor_name,
+	   appointments.appointment_date
+FROM appointments
+JOIN patients ON appointments.patient_id = patients.patient_id
+JOIN doctors ON appointments.doctor_id = doctors.doctor_id
+ORDER BY appointments.appointment_date DESC;
+
+--summarize how many tines,each of appointment in each type 
+SELECT treatment_type,count(*) AS treatment_count,sum(cost) AS total_cost
+FROM treatments
+GROUP BY treatment_type
+ORDER BY treatment_count DESC;
+
+--total cost any treatment type
+SELECT treatment_type,count(*) AS treatment_count,sum(cost) AS total_cost
+FROM treatments
+GROUP BY treatment_type
+ORDER BY total_cost DESC;
+
+
+
+-- total revenue from each doctor
+SELECT doctors.first_name ||''|| doctors.last_name AS doctor_name,
+       sum(billing.amount) AS revenue
+FROM billing
+JOIN treatments ON billing.treatment_id = treatments.treatment_id
+JOIN appointments ON treatments.appointment_id = appointments.appointment_id
+JOIN doctors ON appointments.doctor_id = doctors.doctor_id
+GROUP BY doctor_name
+ORDER BY revenue DESC;
+
+--patient who have most appointment
+SELECT patients.first_name ||''||patients.last_name AS patient_name,
+       count(*) AS total_appointments
+FROM appointments
+JOIN patients ON appointments.patient_id = patients.patient_id
+GROUP BY patient_name
+ORDER BY total_appointments DESC
+LIMIT 5;
+
+--For patient who did appointment but not showing up
+SELECT patients.first_name ||''|| patients.last_name AS patient_name,
+       count(*) AS missed
+FROM appointments
+JOIN patients ON appointments.patient_id = patients.patient_id
+WHERE status = 'No-show'
+GROUP BY patient_name
+ORDER BY missed DESC;
+
+--KPI : income per doctor and time of appointments 
+SELECT doctors.first_name||''||doctors.last_name AS doctor_name,
+       count(distinct appointments.appointment_id) AS num_appointments,
+	   sum(billing.amount) AS total_revenue
+FROM billing
+JOIN treatments ON billing.treatment_id = treatments.treatment_id
+JOIN appointments ON treatments.appointment_id = appointments.appointment_id
+JOIN doctors ON appointments.doctor_id = doctors.doctor_id
+GROUP BY doctor_name
+ORDER BY total_revenue DESC;
+
+
 
