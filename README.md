@@ -57,14 +57,14 @@ SQL-only project to analyze a hospital database (SQLite). This repo focuses on *
 | `email` | TEXT |  |  |  |
 
 ### `treatments`
-| column | type | pk | 
+| column | type | pk |  not null | default |
 |---|---|---|---|---|
-| `treatment_id` | TEXT | ✅ | 
-| `appointment_id` | TEXT | ✅ |  
-| `treatment_type` | TEXT |  | 
-| `description` | TEXT |  | 
-| `cost` | REAL |  |  |  |
-| `treatment_date` | TEXT |  | 
+| `treatment_id` | TEXT | ✅ | |  |
+| `appointment_id` | TEXT | ✅ |  |  |
+| `treatment_type` | TEXT |  | |  |
+| `description` | TEXT |  | |  |
+| `cost` | REAL |  |  |  | |  |
+| `treatment_date` | TEXT |  |  |  |
 
 
 
