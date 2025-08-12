@@ -1,6 +1,6 @@
 # Hospital-Analysis-
 
-SQL-only project to analyze a hospital database (SQLite). This repo focuses on **data modeling, SQL querying, and analysis** — no Python/BI tooling — so that hiring managers can review my SQL work quickly.
+SQL-only project to analyze a hospital database (SQLite). This repo focuses on **data modeling, SQL querying, and analysis** 
 
 ## Problem & Goals
 - Explore hospital operations and answer key questions: visit volumes, peak hours, status distribution, top reasons for visit, doctor utilization, 30‑day revisits, and treatment costs.
@@ -122,16 +122,7 @@ erDiagram
 | `treatment_date` | TEXT |  |  |  |
 
 
-## How to Reproduce (SQLite)
-```bash
-# 1) Create DB from schema
-sqlite3 hospital.db < sql/00_schema.sql
 
-# 2) (Optional) If you have your own sample data, import it here
-
-# 3) Run KPI queries and export sample outputs
-sqlite3 hospital.db ".headers on" ".mode csv"   ".once results/sample_outputs/kpi_outputs.csv"   ".read sql/10_analysis_kpis.sql"
-```
 
 ## Key Questions & Where to Look
 1. Appointments per day — see query (1) in `sql/10_analysis_kpis.sql`  
